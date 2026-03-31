@@ -1,4 +1,5 @@
 "use client";
+
 import { motion } from "motion/react";
 import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator } from "@/components/playground/breadcrumbs";
 import Container from "@/components/playground/container";

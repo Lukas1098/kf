@@ -71,7 +71,12 @@ export default function Form() {
           )}
         >
           {isPending ? (
-            <Loader variant="circular" size="sm" className="border-white border-t-transparent"/>
+            <Loader
+              variant="loading-dots"
+              size="md"
+              className="border-white border-t-transparent"
+              text="Generating"
+              />
           ) : "Generate"}
         </button>
       </div>

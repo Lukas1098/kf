@@ -15,7 +15,7 @@ import { usePlaygroundStore } from "@/stores/playground";
 const languageMap: Record<string, string> = {
     css: "css",
     tailwind: "css",
-    framer: "tsx",
+    framer: "typescript",
 }
 
 export default function CodeBlockGroupComponent() {
@@ -42,7 +42,7 @@ export default function CodeBlockGroupComponent() {
                                 type="button"
                                 onClick={() => setSelectedGroup(group.value)}
                                 className={cn(
-                                    "rounded px-2 py-1 text-xs font-medium transition-colors",
+                                    "rounded px-2 py-1 text-xs font-medium transition-colors cursor-pointer",
                                     selectedGroup === group.value
                                         ? "bg-zinc-900 text-white"
                                         : "bg-zinc-100 text-zinc-600 hover:bg-zinc-200"
@@ -58,14 +58,14 @@ export default function CodeBlockGroupComponent() {
                         onClick={handleCopy}
                     >
                         {copied ? (
-                            <CheckIcon className="h-4 w-4 text-green-500" />
+                            <CheckIcon className="h-4 w-4 text-green-500/80" />
                         ) : (
                             <CopyIcon className="h-4 w-4 text-neutral-500" />
                         )}
                     </button>
                 </CodeBlockGroup>
                 <CodeBlockCode
-                    code={contentMap[selectedGroup] || "// your keyframes will appear here"}
+                    code={contentMap[selectedGroup] || (selectedGroup === "framer" ? "// Your animation will appear here..." : "/* Your animation will appear here... */")}
                     language={languageMap[selectedGroup]}
                 />
             </CodeBlock>
